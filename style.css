@@ -1,6 +1,21 @@
 body {
     background-color: rgb(226, 169, 152);
 }
+
+#container{
+    display: flex;
+}
+
+.cartao{
+    margin: 1rem 1rem;
+}
+
+
+
+
+
+
+
 footer {
     background-color: black;
     position: fixed;
