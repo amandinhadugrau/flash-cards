@@ -1,23 +1,26 @@
 const container = document.getElementById("container");
 
 perguntas.forEach(({ materia, pergunta, resposta }) => {
-  const card = document.createElement("article");
+  const card = document.createElement("div");
   card.classList.add("cartao");
 
-  card.innerHTML = `
-    <div class="cartao__conteudo">
-      <h3>${materia}</h3>
-      <div class="cartao__conteudo__pergunta">
-        <p>${pergunta}</p>
-      </div>
-      <div class="cartao__conteudo__resposta">
-        <p>${resposta}</p>
-      </div>
-    </div>
-  `;
+  const conteudo = document.createElement("div");
+  conteudo.classList.add("cartao__conteudo");
+
+  const frente = document.createElement("div");
+  frente.classList.add("face", "frente");
+  frente.innerHTML = `<h3>${materia}</h3><p>${pergunta}</p>`;
+
+  const verso = document.createElement("div");
+  verso.classList.add("face", "verso");
+  verso.innerHTML = `<p>${resposta}</p>`;
+
+  conteudo.appendChild(frente);
+  conteudo.appendChild(verso);
+  card.appendChild(conteudo);
 
   card.addEventListener("click", () => {
-    card.classList.toggle("mostrando");
+    card.classList.toggle("virado");
   });
 
   container.appendChild(card);
