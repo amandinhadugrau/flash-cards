@@ -1,41 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: rgb(226, 169, 152);
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-#container{
-    display: flex;
+main {
+  padding: 2rem;
 }
 
-.cartao{
-    margin: 1rem 1rem;
-    background-color: aqua;
-    height: 20rem;
-    flex-grow: 1;
-    flex-basis: calc(33% - 6rem);
+.titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #00ffc8;
+  margin-bottom: 2rem;
 }
 
-
-
-
-
-
-
-footer {
-    background-color: black;
-    position: fixed;
-    width: 100%;
-    height: 2rem;
-color: azure;
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  justify-items: center;
 }
 
-footer p {
-    text-align: center;
-    font-size: 0.5rem;
-    margin-top: 0.5rem;
+.cartao {
+  width: 250px;
+  height: 180px;
+  perspective: 1000px;
 }
 
 .cartao__conteudo {
-    text-align: center;
-    background-color: aquamarine;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.cartao.virado .cartao__conteudo {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.face h3 {
+  color: #00ffc8;
+  margin-bottom: 0.5rem;
+}
+
+.verso {
+  transform: rotateY(180deg);
+  background-color: #292929;
+  color: #aaffee;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 1rem;
+  color: #aaa;
+  font-size: 0.9rem;
 }
